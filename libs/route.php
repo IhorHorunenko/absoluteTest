@@ -6,8 +6,8 @@
 			$controller = $url[0].'Controller';
 			if(file_exists('controller/'.$controller.'.php')){
 				require_once 'controller/'.$controller.'.php';
-				$method = isset($url[1])?$url[1]:'index';
 				$controller = new $controller;
+				$method = isset($url[1])?$url[1]:'index';
 				if(method_exists($controller, $method)){
 					$controller->$method();
 				} else {

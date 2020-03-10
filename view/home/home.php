@@ -1,7 +1,3 @@
-<?php 
-  require_once 'view/home/header_home.php';
-?>
-
 <main role="main" class="container">
   <div class="d-flex align-items-center p-3 my-3 text-black-50 bg-light rounded shadow-sm">
     <i class="fas fa-users mr-3" width="48" height="48"></i>

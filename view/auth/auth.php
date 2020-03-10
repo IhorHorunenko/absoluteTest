@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" href="https://getbootstrap.com/docs/4.4/examples/sign-in/signin.css">
 <link rel="stylesheet" type="text/css" href="https://getbootstrap.com/docs/4.4/dist/css/bootstrap.min.css">
 <form class="form-signin text-center" action="" method="POST">
-<h1 class="h4 mb-3 font-weight-normal">Авторизация/Регистрация</h1>
+<h1 class="h1 mb-3 font-weight-normal"><a class="nav-link active" href="/" style="font-family: 'Dancing Script', cursive;">Absolute Test</a></h1>
 <div style="background: linear-gradient(to top, rgba(255,32,20,0.4), rgba(255,32,20,0.4)); border-radius: 5px;">
   <p style="padding: 5px 0; color: #8a0700;">
     Для регистрации достаточно ввести логин и пароль нового пользователя, затем нажать кнопку Регистрации!

@@ -12,12 +12,15 @@
 			$test = $test_bd->fetchAll(PDO::FETCH_ASSOC);
 			if(empty($test)){
 				$pdo->query('INSERT INTO users(login, password) VALUES("'.$login.'", "'.$pass.'")');
+				$test_bd = $pdo->query('SELECT * FROM users WHERE login="'.$login.'"');
+				$test = $test_bd->fetchAll(PDO::FETCH_ASSOC);
+				$test = $test[0];
+				$pdo->query('INSERT INTO user_group(id_groups, id_users_group) VALUES("'.$test['id'].'", "'.$test['id'].'")');
 				alert('alert alert-success', 'Регистрация прошла успешно!');
 				header('location: /');
 			} else {
 				alert('alert alert-danger', 'Такой пользователь существует!');
 			}
-			
 		} else {
 			alert('alert alert-danger', 'Заполните поля!');
 		}
@@ -32,6 +35,7 @@
 			if(!empty($test)){
 				if($test[0]['password']==$pass){
 					$_SESSION['auth'] = $test[0]['id'];
+					unset($_SESSION['alert']);
 					header('location: /');
 				} else {
 					alert('alert alert-danger', 'Логин или пароль неверный!');

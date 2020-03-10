@@ -11,6 +11,8 @@
 		function __construct(){
 			if(!isset($_SESSION['auth'])){
 				$this->auth();
+			} else {
+				$this->index();
 			}
 		}
 	}

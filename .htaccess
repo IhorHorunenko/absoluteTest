@@ -1,0 +1,7 @@
+#будем_использовать_перенаправление
+RewriteEngine On 
+#исключение_(если_не содержит существующий файл, то только в том случае делаем перенаправление)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+#[QSA] - разрешение передавать GET параметры
+RewriteRule	^(.+)$ index.php?url=$1 [QSA]

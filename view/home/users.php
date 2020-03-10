@@ -1,3 +1,5 @@
+<div class="container">
+	<a class="btn btn-light mb-5" href="/home/users/add_user"><i class="fas fa-user-plus"></i> Добавить пользователя</a>
 <div class="row">
 <?php 
 	$test_db = $pdo->query('SELECT * FROM user_group WHERE id_groups="'.$_SESSION['auth'].'"');
@@ -19,12 +21,12 @@
 						<?php 
 							if($user['groups']==1){
 								?>
-								<span style="position: absolute; top: 10px; right: 10px;" class="badge badge-secondary">Родитель</span>
-								<i style="font-size: 3rem; text-align: center;" class="fas fa-male mt-3" ></i>
+								<span style="position: absolute; top: 10px; right: 10px;" class="badge badge-success"><i class="fas fa-users-cog"></i> Родитель</span>
+								<i style="font-size: 3rem; text-align: center;" class="fas fa-male mt-5" ></i>
 								<?php
 							} else {
 								?>
-								<i style="font-size: 3rem; text-align: center;" class="fas fa-child mt-3"></i>
+								<i style="font-size: 3rem; text-align: center;" class="fas fa-child mt-5"></i>
 								<?php
 							}
 						?>
@@ -39,7 +41,6 @@
 								} 
 								?>
 							</p>
-							<a href="#">Удалить</a>
 						</div>
 					</div>
 				<?php
@@ -47,4 +48,5 @@
 		}
 	}
 ?>
+</div>
 </div>

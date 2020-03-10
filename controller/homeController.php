@@ -24,5 +24,13 @@
 			$title = 'Пользователи';
 			View::render('home/users', compact('title'));
 		}
+		public function add_user() {
+			if(!isset($_SESSION['auth'])){
+				$this->auth();
+				exit;
+			}
+			$title = 'Добавление пользователя';
+			View::render('home/add_user', compact('title'));
+		}
 	}
 ?>

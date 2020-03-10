@@ -3,10 +3,10 @@
 ?>
 
 <main role="main" class="container">
-  <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-success rounded shadow-sm">
+  <div class="d-flex align-items-center p-3 my-3 text-black-50 bg-light rounded shadow-sm">
     <i class="fas fa-users mr-3" width="48" height="48"></i>
     <div class="lh-100">
-      <h6 class="mb-0 text-white lh-100">Список пользователей</h6>
+      <h6 class="mb-0 text-black lh-100">Список пользователей</h6>
     </div>
   </div>
 
@@ -41,10 +41,10 @@
 </main>
 
 <main role="main" class="container">
-  <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded shadow-sm">
+  <div class="d-flex align-items-center p-3 my-3 text-black-50 bg-light rounded shadow-sm">
     <i class="fas fa-tasks mr-3" width="48" height="48"></i>
     <div class="lh-100">
-      <h6 class="mb-0 text-white lh-100">Список заданий</h6>
+      <h6 class="mb-0 text-black lh-100">Список заданий</h6>
     </div>
   </div>
 

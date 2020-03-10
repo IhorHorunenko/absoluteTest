@@ -13,6 +13,7 @@
 			if(empty($test)){
 				$pdo->query('INSERT INTO users(login, password) VALUES("'.$login.'", "'.$pass.'")');
 				alert('alert alert-success', 'Регистрация прошла успешно!');
+				header('location: /');
 			} else {
 				alert('alert alert-danger', 'Такой пользователь существует!');
 			}
@@ -31,6 +32,7 @@
 			if(!empty($test)){
 				if($test[0]['password']==$pass){
 					$_SESSION['auth'] = $test[0]['id'];
+					header('location: /');
 				} else {
 					alert('alert alert-danger', 'Логин или пароль неверный!');
 				}

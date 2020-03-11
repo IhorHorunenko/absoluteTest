@@ -53,6 +53,13 @@
 			}
 		}
 	}
+	function dell_task(){
+		include 'libs/db_connect.php';
+		$id = $_GET['id'];
+		$pdo->query('DELETE FROM tasks WHERE id="'.$id.'"');
+		header('location: http://absolutetest/home/tasks');
+		exit;
+	}
 	function accountExit(){
 		unset($_SESSION['auth']);
 		header('location: /');

@@ -9,7 +9,7 @@
 			<?php 
 				foreach($tasks as $task){
 					?>
-					<div class="card col-4" style="width: 18rem;">
+					<div class="card col-4" style="width: 18rem; overflow: hidden;">
 						<div class="card-body pb-2">
 							<span style="position: absolute;bottom: 0; right: 10px;"><?=$task['task_authors']?></span>
 							<h5 style="text-align: center;" class="card-title"><?=$task['task_name']?></h5>
@@ -30,6 +30,10 @@
 									<?php
 								}
 							?>
+							<div class="panel_tasks" style="position: absolute; top: 0; right: 0; width: 50%; height: 100%; display: flex; align-items: center; background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.4));">
+								<i style="font-size: 20px; padding-left: 5px; color: #7a7a7a; text-shadow: 0px 0px 1.5px #000;" class="fas fa-caret-left"></i>
+								<a style="position: absolute;top: 50%;left: 50%; transform: translate(-50%,-50%); font-size: 30px; color: #fff;" href="?type=dell_task&id=<?=$task['id']?>"><i class="fas fa-trash-alt"></i></a>
+							</div>
 						</div>
 					</div>
 					<?php

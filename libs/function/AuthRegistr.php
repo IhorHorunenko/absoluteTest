@@ -14,8 +14,10 @@
 				$pdo->query('INSERT INTO users(login, password) VALUES("'.$login.'", "'.$pass.'")');
 				$test_bd = $pdo->query('SELECT * FROM users WHERE login="'.$login.'"');
 				$test = $test_bd->fetchAll(PDO::FETCH_ASSOC);
+				// print_r($test);
 				$test = $test[0];
 				$pdo->query('INSERT INTO user_group(id_groups, id_users_group) VALUES("'.$test['id'].'", "'.$test['id'].'")');
+				$pdo->query('UPDATE users SET id_groups = "'.$test['id'].'" WHERE id="'.$test['id'].'"');
 				alert('alert alert-success', 'Регистрация прошла успешно!');
 				header('location: /');
 			} else {

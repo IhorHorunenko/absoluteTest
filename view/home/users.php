@@ -2,7 +2,10 @@
 	<a class="btn btn-light mb-5" href="/home/users/add_user"><i class="fas fa-user-plus"></i> Добавить пользователя</a>
 <div class="row">
 <?php 
-	$test_db = $pdo->query('SELECT * FROM user_group WHERE id_groups="'.$_SESSION['auth'].'"');
+	$id=$pdo->query('SELECT id_groups FROM users WHERE id="'.$_SESSION['auth'].'"');
+	$id=$id->fetchAll(PDO::FETCH_ASSOC);
+	$id=$id[0]['id_groups'];
+	$test_db = $pdo->query('SELECT * FROM user_group WHERE id_groups="'.$id.'"');
 	$test = $test_db->fetchAll(PDO::FETCH_ASSOC);
 	if(empty($test)){
 		?>

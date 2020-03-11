@@ -7,7 +7,10 @@
         Пользователи
         <span class="badge badge-pill bg-light align-text-bottom">
           <?php
-            $test_db = $pdo->query('SELECT * FROM user_group WHERE id_groups="'.$_SESSION['auth'].'"');
+            $id=$pdo->query('SELECT id_groups FROM users WHERE id="'.$_SESSION['auth'].'"');
+            $id=$id->fetchAll(PDO::FETCH_ASSOC);
+            $id=$id[0]['id_groups'];
+            $test_db = $pdo->query('SELECT * FROM user_group WHERE id_groups="'.$id.'"');
             $test = $test_db->fetchAll(PDO::FETCH_ASSOC);
             if(!empty($test)) {
               $test = explode(',', $test[0]['id_users_group']);

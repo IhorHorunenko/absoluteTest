@@ -1,19 +1,19 @@
 <div class="container">
 	<div class="container">
 		<a href="/home/users" class="btn btn-light"><i class="fas fa-caret-left"></i> Назад</a>
-		<form action="" method="POST">
+		<form action="?type=add_user" method="POST">
 			<table class="col-6" style="margin: 0 auto;">
 				<tr>
 					<td style="text-align: center;">
 						<label for="parent">
 							<i id="people" style="font-size: 4rem; text-align: center;" class="fas fa-male mt-5" ></i>
 							<br>
-							<input id="parent" type="radio" name="people" value="parent" checked="checked">
+							<input id="parent" type="radio" name="people" value="1" checked="checked">
 						</label>
 						<label for="children">
 							<i id="people" style="font-size: 4rem; text-align: center;" class="fas fa-child mt-5"></i>
 							<br>
-							<input id="children" type="radio" name="people" value="children">
+							<input id="children" type="radio" name="people" value="2">
 						</label>
 					</td>
 				</tr>
@@ -37,7 +37,16 @@
 				</tr>
 				<tr>
 					<td style="text-align: center;">
-						<a href="?type=add_user" class="btn btn-success">Добавить</a>
+						<?php 
+						  if(isset($_SESSION['alert'])){
+						    ?>
+						    <div class="<?=$_SESSION['type_alert']?>" role="alert">
+						      <?=$_SESSION['alert']?>
+						    </div>
+						    <?php
+						  }
+						?>
+						<button class="btn btn-success">Добавить</button>
 					</td>
 				</tr>
 			</table>

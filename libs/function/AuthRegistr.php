@@ -37,6 +37,9 @@
 			if(!empty($test)){
 				if($test[0]['password']==$pass){
 					$_SESSION['auth'] = $test[0]['id'];
+					$_SESSION['login'] = $test[0]['login'];
+					$_SESSION['group'] = $test[0]['groups'];
+					$_SESSION['id_groups'] = $test[0]['id_groups'];
 					unset($_SESSION['alert']);
 					header('location: /');
 				} else {

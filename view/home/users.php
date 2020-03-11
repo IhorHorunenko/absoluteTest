@@ -2,6 +2,7 @@
 	<a class="btn btn-light mb-5" href="/home/users/add_user"><i class="fas fa-user-plus"></i> Добавить пользователя</a>
 <div class="row">
 <?php 
+	unset($_SESSION['alert']);
 	$id=$pdo->query('SELECT id_groups FROM users WHERE id="'.$_SESSION['auth'].'"');
 	$id=$id->fetchAll(PDO::FETCH_ASSOC);
 	$id=$id[0]['id_groups'];
@@ -33,15 +34,19 @@
 								<?php
 							}
 						?>
-							<div class="card-body" style="text-align: center;">
+							<div class="card-body pb-0" style="text-align: center;">
 							<h5 class="card-title"><?=$user['login']?></h5>
 							<p>
 								<?php
 								if($user['groups']==1){
 									?>
-									<p class="badge badge-danger">Группа имеет полный доступ!</p>
+									<p class="badge badge-danger">Пользователь имеет полный доступ!</p>
 									<?php
-								} 
+								} else {
+									?>
+									<p class="badge badge-success">Пользователь с ограниченным доступом!</p>
+									<?php
+								}
 								?>
 							</p>
 						</div>

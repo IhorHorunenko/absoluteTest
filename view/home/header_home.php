@@ -2,7 +2,7 @@
   <div class="container" style="text-align: center;">
     <nav class="nav nav-underline" style="position: relative; display: flex; align-items: center;">
       <a class="nav-link active" href="/" style="font-family: 'Dancing Script', cursive; font-size: 25px;">Absolute Test</a>
-      <a class="nav-link active" href="/">Главная</a>
+
       <a class="nav-link" href="/home/users">
         Пользователи
         <span class="badge badge-pill bg-light align-text-bottom">
@@ -19,7 +19,7 @@
           ?>
         </span>
       </a>
-      <a class="nav-link" href="#">
+      <a class="nav-link" href="/home/tasks">
         Задания
         <span class="badge badge-pill bg-light align-text-bottom">0</span>
       </a>

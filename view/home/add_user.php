@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="container">
-		<a href="/home/users" class="btn btn-light"><i class="fas fa-caret-left"></i> Назад</a>
+		<h2 class="pb-5" style="text-align: center;"><?=$title?></h2>
 		<form action="?type=add_user" method="POST">
 			<table class="col-6" style="margin: 0 auto;">
 				<tr>

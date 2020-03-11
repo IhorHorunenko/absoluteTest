@@ -31,6 +31,28 @@
 			alert('alert alert-danger', 'Заполните поля!');
 		}
 	}
+	function add_tasks() {
+		include 'libs/db_connect.php';
+		$task_name = $_POST['task_name'];
+		$task_description = $_POST['task_description'];
+		$task_authors = $_SESSION['login'];
+		// $task_desc_files = $_POST['task_desc_files'];
+		if(!empty($task_name)){
+			if($_FILES['task_desc_files']['size']!=0){
+				$uploaddir = 'tasks/';
+				$uploadfile = $uploaddir.basename(rand().$_FILES['task_desc_files']['name']);
+				if (move_uploaded_file($_FILES['task_desc_files']['tmp_name'], $uploadfile)) {
+					$pdo->query('INSERT INTO tasks (id_groups, task_name, task_description, task_authors, task_desc_files) VALUES("'.$_SESSION['id_groups'].'", "'.$task_name.'", "'.$task_description.'", "'.$task_authors.'", "'.$uploadfile.'")');
+					header('location: http://absolutetest/home/tasks');
+					exit;
+				} 
+			} else {
+				$pdo->query('INSERT INTO tasks (id_groups, task_name, task_description, task_authors) VALUES("'.$_SESSION['id_groups'].'", "'.$task_name.'", "'.$task_description.'", "'.$task_authors.'")');
+				header('location: http://absolutetest/home/tasks');
+				exit;
+			}
+		}
+	}
 	function accountExit(){
 		unset($_SESSION['auth']);
 		header('location: /');

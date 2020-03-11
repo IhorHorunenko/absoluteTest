@@ -32,5 +32,21 @@
 			$title = 'Добавление пользователя';
 			View::render('home/add_user', compact('title'));
 		}
+		public function tasks() {
+			if(!isset($_SESSION['auth'])){
+				$this->auth();
+				exit;
+			}
+			$title = 'Задания';
+			View::render('home/tasks', compact('title'));
+		}
+		public function add_tasks() {
+			if(!isset($_SESSION['auth'])){
+				$this->auth();
+				exit;
+			}
+			$title = 'Добавление задания';
+			View::render('home/add_tasks', compact('title'));
+		}
 	}
 ?>

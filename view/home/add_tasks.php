@@ -17,7 +17,7 @@
 			<tr>
 				<td class="col-12 pt-3" colspan="2" style="text-align: center;">
 					<p>Прикрепление файла необязательно</p>
-					<input id="task_desc_files" type="file" name="task_desc_files">
+					<input id="task_desc_files" type="file" name="task_desc_files" accept=".txt, .docx, .xlsx">
 				</td>
 			</tr>
 			<tr style="text-align: center;">

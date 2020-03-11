@@ -40,7 +40,7 @@
 		if(!empty($task_name)){
 			if($_FILES['task_desc_files']['size']!=0){
 				$uploaddir = 'tasks/';
-				$uploadfile = $uploaddir.basename(rand().$_FILES['task_desc_files']['name']);
+				$uploadfile = $uploaddir.basename(rand().translit($_FILES['task_desc_files']['name']));
 				if (move_uploaded_file($_FILES['task_desc_files']['tmp_name'], $uploadfile)) {
 					$pdo->query('INSERT INTO tasks (id_groups, task_name, task_description, task_authors, task_desc_files) VALUES("'.$_SESSION['id_groups'].'", "'.$task_name.'", "'.$task_description.'", "'.$task_authors.'", "'.$uploadfile.'")');
 					header('location: http://absolutetest/home/tasks');
@@ -56,5 +56,12 @@
 	function accountExit(){
 		unset($_SESSION['auth']);
 		header('location: /');
+	}
+	function translit($s) {
+	  $s = (string) $s;
+	  $s = trim($s);
+	  $s = function_exists('mb_strtolower') ? mb_strtolower($s) : strtolower($s);
+	  $s = strtr($s, array('а'=>'a','б'=>'b','в'=>'v','г'=>'g','д'=>'d','е'=>'e','ё'=>'e','ж'=>'j','з'=>'z','и'=>'i','й'=>'y','к'=>'k','л'=>'l','м'=>'m','н'=>'n','о'=>'o','п'=>'p','р'=>'r','с'=>'s','т'=>'t','у'=>'u','ф'=>'f','х'=>'h','ц'=>'c','ч'=>'ch','ш'=>'sh','щ'=>'shch','ы'=>'y','э'=>'e','ю'=>'yu','я'=>'ya','ъ'=>'','ь'=>''));
+	  return $s;
 	}
 ?>

@@ -20,6 +20,9 @@
 			if(!isset($_SESSION['auth'])){
 				$this->auth();
 				exit;
+			} elseif($_SESSION['group']==2){
+				header("HTTP/1.0 404 Not Found");
+				exit();
 			}
 			$title = 'Пользователи';
 			View::render('home/users', compact('title'));
@@ -28,6 +31,9 @@
 			if(!isset($_SESSION['auth'])){
 				$this->auth();
 				exit;
+			} elseif($_SESSION['group']==2){
+				header("HTTP/1.0 404 Not Found");
+				exit();
 			}
 			$title = 'Добавление пользователя';
 			View::render('home/add_user', compact('title'));
@@ -36,6 +42,9 @@
 			if(!isset($_SESSION['auth'])){
 				$this->auth();
 				exit;
+			} elseif($_SESSION['group']==2){
+				header("HTTP/1.0 404 Not Found");
+				exit();
 			}
 			$title = 'Задания';
 			View::render('home/tasks', compact('title'));
@@ -44,6 +53,9 @@
 			if(!isset($_SESSION['auth'])){
 				$this->auth();
 				exit;
+			} elseif($_SESSION['group']==2){
+				header("HTTP/1.0 404 Not Found");
+				exit(); 
 			}
 			$title = 'Добавление задания';
 			View::render('home/add_tasks', compact('title'));

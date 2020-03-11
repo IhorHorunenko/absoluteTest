@@ -32,7 +32,7 @@
 							?>
 							<div class="panel_tasks" style="position: absolute; top: 0; right: 0; width: 50%; height: 100%; display: flex; align-items: center; background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.4));">
 								<i style="font-size: 20px; padding-left: 5px; color: #7a7a7a; text-shadow: 0px 0px 1.5px #000;" class="fas fa-caret-left"></i>
-								<a style="position: absolute;top: 50%;left: 50%; transform: translate(-50%,-50%); font-size: 30px; color: #fff;" href="?type=dell_task&id=<?=$task['id']?>"><i class="fas fa-trash-alt"></i></a>
+								<a style="position: absolute;top: 50%;left: 50%; transform: translate(-50%,-50%); font-size: 30px; color: #80341f;" href="?type=dell_task&id=<?=$task['id']?>"><i class="fas fa-trash-alt"></i></a>
 							</div>
 						</div>
 					</div>

@@ -1,5 +1,6 @@
 $(window).ready(function(){
 	$('.panel_tasks').css('left', ($('.panel_tasks').width()*2)-20);
+	$('.panel_task_home').css('right', -$('.panel_task_home').width());
 });
 $('.panel_tasks').hover(function(){
 	if($(this).attr('class')!='panel_tasks active'){
@@ -21,3 +22,37 @@ $('.panel_tasks').hover(function(){
 }).on('hover', 'body', function(){
 	left: ($('.panel_tasks').width()*2)-20+'px'
 });
+$('.task').hover(function(){
+	$id_task = $(this).data('task_id');
+	$id_account = $(this).data('id');
+	// alert($id);
+	$.ajax({
+		url: 'libs/function/add_view_account.php',
+		type: 'post',
+		data: {
+			id_task:$id_task,
+			id_account:$id_account
+		}
+	});
+	$(this).children('.panel_task_home').animate({
+		right: '0px'
+	},300);
+}, function(){
+	$(this).children('.panel_task_home').animate({
+		right: -$('.panel_task_home').width()+'px'
+	},300);
+})
+$('#task_ok').click(function(e){
+	e.preventDefault();
+	$id_task = $(this).parent('.panel_task_home').parent('.task').data('task_id');
+	$.ajax({
+		url: 'libs/function/update_active.php',
+		type: 'post',
+		data: {
+			id_task:$id_task
+		},
+		success: function(){
+			location.reload();
+		}
+	});
+})
